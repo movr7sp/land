@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.splash {
+    animation-name: initfade;
+    animation-duration: 2s;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.resplash {
+    animation-name: reinitfade;
+    animation-duration: 4s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.circleDraw {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: drawCircle 2s ease forwards;
+}
+
+.circleErase {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 0;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: eraseCircle 2s ease forwards;
+}
+
+
+
+@keyframes initfade {
+    0% {
+        opacity: 100;
+    }
+
+    70% {
+        opacity: 70;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes reinitfade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 100;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes eraseCircle {
+  to {
+    stroke-dashoffset: -314;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
