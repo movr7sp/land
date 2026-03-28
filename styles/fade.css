@@ -1,0 +1,38 @@
+.animationFade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.animationReFade {
+    animation-name: refade;
+    animation-duration: 3s;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 100;
+    }
+
+    70% {
+        opacity: 70;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes refade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 100;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

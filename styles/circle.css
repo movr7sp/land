@@ -1,0 +1,71 @@
+.animationDrawCircle-white {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: drawCircle 2s ease forwards;
+}
+
+.animationEraseCircle-white {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 0;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: eraseCircle 2s ease forwards;
+}
+
+.animationDrawCircle-black {
+  fill: none;
+  stroke: black;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: drawCircle 2s ease forwards;
+}
+
+.animationEraseCircle-black {
+  fill: none;
+  stroke: black;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 314;
+  stroke-dashoffset: 0;
+
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+  animation: eraseCircle 2s ease forwards;
+}
+
+@keyframes eraseCircle {
+  to {
+    stroke-dashoffset: -314;
+  }
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
