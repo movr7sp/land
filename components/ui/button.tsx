@@ -14,7 +14,7 @@ export function MenuButton(props : MenuButtonProperties) {
 
     return (
         <button onClick={() => {setActive(!active)}} type="button" className="flex flex-col place-content-center w-20 mr-5 pointer-events-auto">
-            <div className={`h-3 w-13 place-self-left rounded-2xl mb-1 bg-${props.color}`}></div>
+            <div className={`h-2 w-13 place-self-left rounded-2xl mb-1 bg-${props.color}`}></div>
             <div className="relative pl-1 items-center justify-center h-5 overflow-hidden" >
                 <span className={`flex h-5 absolute
                                     text-sm font-bold tracking-widest text-${props.color}
