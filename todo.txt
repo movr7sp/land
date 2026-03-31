@@ -1,0 +1,11 @@
+Main:
+	 . Buttons
+	 . Cutted paper
+	 . Layout for computers
+
+Permament/Tattoo
+	 . About
+	 . Gallery
+	 . Appointments
+	 . Nav
+	

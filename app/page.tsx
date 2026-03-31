@@ -95,8 +95,8 @@ export default function Home()  {
             <img src={`img/location/bokoti-flag-street-crop.jpg`} className="h-70vh w-auto mask-b-from-80% mask-b-to-100%"></img>
           </div>
           <div className="flex grow items-center justify-center">
-            <Link href={`/permanent`} className={`border rounded-2xl p-4`}>
-              <h1 ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}}>GET IN TOUCH</h1>
+            <Link href={`/permanent`} className={``}>
+              <span ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}} className="border rounded-2xl p-4">GET IN TOUCH</span>
             </Link>
           </div>
         </div>
