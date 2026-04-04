@@ -76,16 +76,12 @@ export default function Home()  {
           toggleActions: "play none none reverse",
         },
       });
-
-      // dragon (background)
       tl.from(".dragon", {
         opacity: 0,
         scale: 0.9,
         duration: 1.2,
         ease: "power3.out",
       });
-
-      // text reveal (LEFT → RIGHT)
       tl.fromTo(
         tattooRef.current,
         {
@@ -100,8 +96,6 @@ export default function Home()  {
         },
         "-=0.8"
       );
-
-      // button
       tl.from(
         tattooRef.current.querySelector("button"),
         {
@@ -117,7 +111,7 @@ export default function Home()  {
 
   return (
     <>
-      <Splash color="light"/>
+      <Splash theme="light"/>
       
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth" ref={containerRef}>
         
@@ -182,9 +176,9 @@ export default function Home()  {
           <div className="flex flex-col grow mt-5" ref={tattooRef}>
             <Image src={texture} alt="texture"></Image>
             <div className="relative flex flex-col flex-1 w-full bg-black items-center justify-start">
-              <Image src={dragonSketch} alt="dragonSketch" className="absolute h-50 w-auto place-self-center -translate-y-5" />
+              <Image src={dragonSketch} alt="dragonSketch" className="dragon absolute h-50 w-auto place-self-center -translate-y-5" />
               <div className="relative flex flex-col items-center text-center">
-                <h3 className={`text-white ${montserrat.className} text-3xl bg-transparent`}>WANNA<br/>TATTOO?</h3>
+                <h3 className={`text-white ${montserrat.className} text-3xl bg-transparent`}>WANT A<br/>TATTOO?</h3>
                 <Link href={`/tattoo`} className="flex ml-5 mt-4">
                   <button className={`text-xl ${bebas.className} w-30 h-12 border border-white bg-black text-white shadow-lg`} type="button">
                     Look here

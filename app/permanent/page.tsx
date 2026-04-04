@@ -10,8 +10,8 @@ export default function Home()  {
 
   return (
     <>
-      <Splash color="light"/>
-      <Header color="black"/>
+      <Splash theme="light"/>
+      <Header theme="dark"/>
     
 
     </>

@@ -10,8 +10,8 @@ export default function Home()  {
 
   return (
     <>
-      <Splash color="dark"/>
-      <Header color="light"/>
+      <Splash theme="dark"/>
+      <Header theme="light"/>
       <FullscreenVideo src="video/misc/weeknd.mp4"/>
 
       

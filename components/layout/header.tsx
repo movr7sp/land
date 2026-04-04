@@ -6,18 +6,18 @@ import { MenuButton } from "../ui/button";
 import logoblack from "@/public/img/logo/logo-black.svg"
 import logolight from "@/public/img/logo/logo-white.svg"
 
-type HeaderColors = "black" | "light"
+type Themes = "dark" | "light"
 
 interface HeaderProperties {
-    color : HeaderColors
+    theme : Themes
 }
 
 export default function Header(props : HeaderProperties) {
 
     let logo: string;
 
-    switch (props.color) {
-        case "black": {
+    switch (props.theme) {
+        case "dark": {
             logo = logoblack
             break;
         }
@@ -34,7 +34,7 @@ export default function Header(props : HeaderProperties) {
                     <Image src={logo} alt="LOGO" priority/>
                 </Link>
             </div>
-            <MenuButton color={props.color}/>
+            <MenuButton theme={props.theme}/>
         </header>
     )
 }
