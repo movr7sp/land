@@ -6,8 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-import { SourceSerif4 } from "@/components/ui/font";
+import { owsald, sourceSerif4, bebas } from "@/components/ui/font";
 import { jost } from "@/components/ui/font";
+import { montserrat } from "@/components/ui/font";
 
 import logo from '@/public/img/logo/permanent-gray.svg'
 import flag from '@/public/img/location/bokoti-flag-street-crop.jpg'
@@ -30,6 +31,7 @@ export default function Home()  {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionsRef = useRef<HTMLDivElement[]>([]);
   const textsRef = useRef<HTMLHeadingElement[]>([]);
+  const tattooRef = useRef<HTMLDivElement>(null);
 
   useGSAP(()=>{
       
@@ -63,6 +65,54 @@ export default function Home()  {
           );
         }
     });
+
+    if (tattooRef.current) {
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: tattooRef.current,
+          scroller: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // dragon (background)
+      tl.from(".dragon", {
+        opacity: 0,
+        scale: 0.9,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      // text reveal (LEFT → RIGHT)
+      tl.fromTo(
+        tattooRef.current,
+        {
+          clipPath: "inset(0 100% 0 0)",
+          opacity: 0,
+        },
+        {
+          clipPath: "inset(0 0% 0 0)",
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+        },
+        "-=0.8"
+      );
+
+      // button
+      tl.from(
+        tattooRef.current.querySelector("button"),
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+        },
+        "-=0.6"
+      );
+    }
+    
   },[])
 
   return (
@@ -77,7 +127,7 @@ export default function Home()  {
             <Image src={logo} alt="logo" className="-translate-y-15 place-self-center opacity-70"/>      
           </div>
           <div className="flex grow justify-center" ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}}>
-                <h1 className={`text-center text-black text-5xl leading-16 ${SourceSerif4.className}`}>Your Beauty</h1>
+                <h1 className={`text-center text-black text-5xl leading-16 ${sourceSerif4.className}`}>Your Beauty</h1>
           </div>
         </div>
 
@@ -87,7 +137,7 @@ export default function Home()  {
             <Image src={logo} alt="logo" className="-translate-y-15 place-self-center opacity-70"/>
           </div>
           <div className="flex grow justify-center" ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}}>
-            <h1 className={`text-center text-black text-5xl leading-16 ${SourceSerif4.className}`}>Permanently</h1>
+            <h1 className={`text-center text-black text-5xl leading-16 ${sourceSerif4.className}`}>Permanently</h1>
           </div>
         </div>
 
@@ -96,15 +146,18 @@ export default function Home()  {
             <Image src={m3} className="mask-b-from-40% mask-b-to-100%" alt="m3"></Image>
           </div>
           <div className="flex grow justify-center -translate-y-15" ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}}>
-                <h1 className={`text-center text-black text-5xl pb-20 leading-16 ${SourceSerif4.className}`}>Perfect<span className="block h-[2px] bg-black w-full origin-left scale-x-0"></span></h1> 
+                <h1 className={`text-center text-black text-5xl pb-20 leading-16 ${sourceSerif4.className}`}>Perfect<span className="block h-[2px] bg-black w-full origin-left scale-x-0"></span></h1> 
           </div>
         </div>
 
-        <div className="flex flex-col h-screen w-full snap-start ">
-          <div className="flex flex-col bg-white">
+        <div className="flex flex-col w-full snap-start overflow-visible opacity-0 h-[110vh]" ref={(el) => {if (el && !sectionsRef.current.includes(el)) {sectionsRef.current.push(el);}}}>
+          
+          <div className="flex flex-col bg-white" >
             <Image src={flag} className="mask-b-from-80% mask-b-to-100%" alt="flag" ></Image>
           </div>
-          <div className="flex flex-col h-auto items-center justify-center">
+          
+          <div className="flex flex-col h-auto items-center justify-center" ref={(el) => {if (el && !textsRef.current.includes(el)) {textsRef.current.push(el);}}}>
+            {/* LOCATION */}
             <div className="w-full mt-5">
               <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent" />
               <div className="flex justify-center py-2">
@@ -114,18 +167,34 @@ export default function Home()  {
               </div>
               <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent" />
             </div>
+            {/*-LOCATION-*/}
+
+            {/* DISCOVER */}
             <Link href={`/permanent`} className="flex w-full mt-10 justify-center">
-              <button className={`text-2xl ${jost.className} w-30 h-10 border border-gray-100/90 rounded-2xl  backdrop-blur-lg shadow-lg bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.7)_0%,_rgba(200,200,200,0.25)_60%,_rgba(150,150,150,0.15)_100%)]`} type="button">
+              <button className={`text-2xl ${jost.className} w-35 h-12 border border-gray-100/90 rounded-2xl  backdrop-blur-lg shadow-lg bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.7)_0%,_rgba(200,200,200,0.25)_60%,_rgba(150,150,150,0.15)_100%)]`} type="button">
                 Discover
               </button>
             </Link>
+            {/*-DISCOVER-*/}  
           </div>
-          <div className="flex flex-col grow mt-10">
+        
+          {/* TATTOO BLOCK */}
+          <div className="flex flex-col grow mt-5" ref={tattooRef}>
             <Image src={texture} alt="texture"></Image>
-            <div className="flex flex-1 grow w-full bg-black">
-              <Image src={dragonSketch} alt="dragonSketch" className="w-50 h-50"></Image> 
+            <div className="relative flex flex-col flex-1 w-full bg-black items-center justify-start">
+              <Image src={dragonSketch} alt="dragonSketch" className="absolute h-50 w-auto place-self-center -translate-y-5" />
+              <div className="relative flex flex-col items-center text-center">
+                <h3 className={`text-white ${montserrat.className} text-3xl bg-transparent`}>WANNA<br/>TATTOO?</h3>
+                <Link href={`/tattoo`} className="flex ml-5 mt-4">
+                  <button className={`text-xl ${bebas.className} w-30 h-12 border border-white bg-black text-white shadow-lg`} type="button">
+                    Look here
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
+          {/*-TATTOO BLOCK-*/}
+        
         </div>
 
       </div>
