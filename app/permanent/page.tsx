@@ -10,9 +10,8 @@ export default function Home()  {
 
   return (
     <>
-      <Splash color="white"/>
+      <Splash color="light"/>
       <Header color="black"/>
-      <Video src="video/permanent/permanent-makeup-3.mp4"></Video>
     
 
     </>

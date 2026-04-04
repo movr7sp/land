@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MenuButton } from "../ui/button";
+import logoblack from "@/public/img/logo/logo-black.svg"
+import logolight from "@/public/img/logo/logo-white.svg"
 
-type HeaderColors = "black" | "white"
+type HeaderColors = "black" | "light"
 
 interface HeaderProperties {
     color : HeaderColors
@@ -16,11 +18,11 @@ export default function Header(props : HeaderProperties) {
 
     switch (props.color) {
         case "black": {
-            logo = "logo-black.svg"
+            logo = logoblack
             break;
         }
-        case "white": {
-            logo = "logo-white.svg"
+        case "light": {
+            logo = logolight
             break;
         }
     }
@@ -29,10 +31,9 @@ export default function Header(props : HeaderProperties) {
         <header className="fixed flex w-dvw pt-5 overflow-hidden place-content-between z-40 pointer-events-auto">
             <div className="flex items-center justify-center ml-10">
                 <Link href="/">
-                    <Image src={logo} alt="LOGO" width={100} height={30} priority/>
+                    <Image src={logo} alt="LOGO" priority/>
                 </Link>
             </div>
-
             <MenuButton color={props.color}/>
         </header>
     )

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-type MenuButtonColors = "black" | "white"
+type MenuButtonColors = "light" | "black"
 
 interface MenuButtonProperties {
     color : MenuButtonColors

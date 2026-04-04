@@ -3,7 +3,7 @@
 import "@/styles/fade.css"
 import "@/styles/circle.css"
 
-type SplashColors = "black" |  "white"
+type SplashColors = "dark" |  "light"
 
 interface SplashProperties {
     color : SplashColors
@@ -15,12 +15,12 @@ export function Splash(props : SplashProperties) {
     let circlecolor;
 
     switch (props.color) {
-        case "black" : {
+        case "dark" : {
             backgroundcolor = "black";
             circlecolor = "white";
             break;
         } 
-        case "white" : {
+        case "light" : {
             backgroundcolor = "white"
             circlecolor = "black"
             break;
