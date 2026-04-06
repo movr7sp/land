@@ -1,11 +1,14 @@
 'use client'
 
 import { useState } from "react"
+import { jost } from "./font"
+import { bebas } from "./font"
+import Link from "next/link"
 
-type MenuButtonColors = "light" | "dark"
+type MenuButtonThemes = "light" | "dark"
 
 interface MenuButtonProperties {
-    theme : MenuButtonColors
+    theme : MenuButtonThemes
 }
 
 export function MenuButton(props : MenuButtonProperties) {
@@ -36,3 +39,5 @@ export function MenuButton(props : MenuButtonProperties) {
         </button>
     )
 }
+
+

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TattooLayout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
-    <div className={"bg-black"}>
+    <div className={"bg-black flex"}>
       {children}
     </div>
   );

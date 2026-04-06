@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 
-type NavColor = "light" | "dark"
+type NavThemes = "light" | "dark"
 
 interface NavProperties {
-    color : NavColor
+    color : NavThemes
 }
 
 export function Nav() {

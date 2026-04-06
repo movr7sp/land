@@ -12,8 +12,12 @@ export default function Home()  {
     <>
       <Splash theme="dark"/>
       <Header theme="light"/>
-      <FullscreenVideo src="video/misc/weeknd.mp4"/>
-
+      <main className="flex flex-col">
+        <div className="flex h-screen w-full content-center justify-center">
+          <h1 className="text-white place-self-center">TO FUCKING DO</h1>
+        </div>
+      </main>
+      
       
     </>
   );

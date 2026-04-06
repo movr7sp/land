@@ -31,7 +31,7 @@ export default function Header(props : HeaderProperties) {
         <header className="fixed flex w-dvw pt-5 overflow-hidden place-content-between z-40 pointer-events-auto">
             <div className="flex items-center justify-center ml-10">
                 <Link href="/">
-                    <Image src={logo} alt="LOGO" priority/>
+                    <Image src={logo} alt="LOGO" className="w-25" priority/>
                 </Link>
             </div>
             <MenuButton theme={props.theme}/>
