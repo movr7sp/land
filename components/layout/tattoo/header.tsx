@@ -24,7 +24,7 @@ export default function Header() {
             <header className="fixed flex w-dvw pt-5 overflow-hidden place-content-between z-50 pointer-events-auto">
                 <div className="flex items-center justify-between ml-5">
                     <Link href={`/`}>
-                        <Image src={tattooLogo} alt="tattooLogo" className="w-40 lg:w-60 mr-30"></Image>
+                        <Image src={tattooLogo} alt="tattooLogo" className="w-40 lg:w-60 mr-30" loading="eager"></Image>
                     </Link>
                 </div>
                 <SwitchButton onClick={() => {setNavActive(!navActive);}}/>
