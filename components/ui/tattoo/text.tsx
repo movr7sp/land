@@ -1,6 +1,6 @@
 'use client'
 
-import { montserrat } from "../font"
+import { montserrat } from "./font"
 
 interface TaglineProperties {
      children : React.ReactNode,
